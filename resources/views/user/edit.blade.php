@@ -14,7 +14,7 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('user.update', $user->id) }}" method="post">
+                        <form action="{{ route('users.update', $user->id) }}" method="post">
                             Form Here
                         </form>
                         </div>
