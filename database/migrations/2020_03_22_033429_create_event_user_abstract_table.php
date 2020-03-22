@@ -15,7 +15,7 @@ class CreateEventUserAbstractTable extends Migration
     {
         Schema::create('event_user_abstract', function (Blueprint $table) {
             $table->id();
-            $table->integer('event_user_id')->unsigned();
+            $table->bigInteger('event_user_id');
             $table->string('title', 100);
             $table->string('authors', 200);
             $table->string('body', 3000);
