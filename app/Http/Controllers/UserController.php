@@ -83,7 +83,12 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+
+        $user->save();
+
+        return redirect('users.index')->with('status', 'User updated!');
     }
 
     /**
