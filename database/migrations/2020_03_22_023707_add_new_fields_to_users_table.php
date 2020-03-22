@@ -20,7 +20,7 @@ class AddNewFieldsToUsersTable extends Migration
             $table->string('address_city', 200)->after('address_street_2')->nullable();
             $table->string('address_state', 20)->after('address_city')->nullable();
             $table->string('address_zip', 10)->after('address_state')->nullable();
-            $table->tinyInteger('administrator_ind')->default(0)->after('address');
+            $table->tinyInteger('administrator_ind')->default(0)->after('address_zip');
             $table->date('mi_member_date')->after('administrator_ind')->nullable();
 
             $table->renameColumn('name', 'first_name');
