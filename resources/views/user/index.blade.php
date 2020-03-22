@@ -15,7 +15,7 @@
                         @endif
 
                         @foreach ($users as $user)
-                            {{ $user->name }}<br>
+                            {{ $user->first_name }}<br>
                         @endforeach
                     </div>
                 </div>
