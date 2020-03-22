@@ -20,7 +20,7 @@ class CreateEventUserTable extends Migration
             $table->date('registration_date');
             $table->timestamps();
 
-            $table->foreign('event_id')->references('id')->on('event');
+            $table->foreign('event_id')->references('id')->on('events');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
