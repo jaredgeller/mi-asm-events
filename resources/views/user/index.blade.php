@@ -18,6 +18,7 @@
                             <table class="table table-striped table-bordered table-sm">
                                 <thead>
                                     <tr>
+                                        <th scope="col">Actions</th>
                                         <th scope="col">Id</th>
                                         <th scope="col">First</th>
                                         <th scope="col">Last</th>
@@ -34,7 +35,8 @@
                                 <tbody>
                                 @foreach ($users as $user)
                                     <tr>
-                                        <th scope="row">{{ $user->id }}</th>
+                                        <th scope="row"><a href="{{ route('user.edit', $user->id) }}">Edit</a></th>
+                                        <th>{{ $user->id }}</th>
                                         <td>{{ $user->first_name }}</td>
                                         <td>{{ $user->last_name }}</td>
                                         <td>{{ $user->email }}</td>
