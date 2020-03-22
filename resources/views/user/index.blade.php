@@ -14,9 +14,40 @@
                             </div>
                         @endif
 
-                        @foreach ($users as $user)
-                            {{ $user->first_name }}<br>
-                        @endforeach
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Id</th>
+                                    <th scope="col">First</th>
+                                    <th scope="col">Last</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Street 1</th>
+                                    <th scope="col">Street 2</th>
+                                    <th scope="col">City</th>
+                                    <th scope="col">State</th>
+                                    <th scope="col">Zip</th>
+                                    <th scope="col">MI-ASM Member</th>
+                                    <th scope="col">Admin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach ($users as $user)
+                                <tr>
+                                    <th scope="row">{{ $user->id }}</th>
+                                    <td>{{ $user->first_name }}</td>
+                                    <td>{{ $user->last_name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->address_street_1 }}</td>
+                                    <td>{{ $user->address_street_2 }}</td>
+                                    <td>{{ $user->address_city }}</td>
+                                    <td>{{ $user->address_state }}</td>
+                                    <td>{{ $user->address_zip }}</td>
+                                    <td>{{ $user->administrator_ind ? 'Y' : '' }}</td>
+                                    <td>{{ $user->mi_member_date }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ class User extends Authenticatable
         'address_street_2',
         'address_city',
         'address_state',
-        'address-zip',
+        'address_zip',
         'administrator_ind',
         'mi_member_date',
     ];
