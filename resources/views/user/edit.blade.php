@@ -14,8 +14,30 @@
                             </div>
                         @endif
 
-                        <form action="{{ route('users.update', $user->id) }}" method="post">
-                            Form Here
+                        <form action="{{ route('users.update', $user->id) }}" method="POST">
+                            @csrf
+
+                            <div class="form-group row">
+                                <label for="first_name" class="col-md-4 col-form-label text-md-right">First Name</label>
+
+                                <div class="col-md-6">
+                                    <input id="first_name" type="text" class="form-control" name="first_name" value="{{ $user->first_name }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="last_name" class="col-md-4 col-form-label text-md-right">Last Name</label>
+
+                                <div class="col-md-6">
+                                    <input id="last_name" type="text" class="form-control" name="last_name" value="{{ $user->last_name }}">
+                                </div>
+                            </div>
+
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </div>
+                            </div>
                         </form>
                         </div>
                     </div>
