@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Event;
 use Illuminate\Http\Request;
 
-class UserController extends Controller
+class EventController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -24,8 +24,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index', [
-            'users' => User::all(),
+        return view('event.index', [
+            'events' => Event::all(),
         ]);
     }
 
@@ -53,10 +53,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show(Event $event)
     {
         //
     }
@@ -64,13 +64,13 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit(Event $event)
     {
-        return view('user.edit', [
-            'user' => $user,
+        return view('event.edit', [
+            'event' => $event,
         ]);
     }
 
@@ -78,34 +78,27 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, Event $event)
     {
-        $user->first_name = $request->input('first_name');
-        $user->last_name = $request->input('last_name');
-        $user->email = $request->input('email');
-        $user->address_street_1 = $request->input('address_street_1');
-        $user->address_street_2 = $request->input('address_street_2');
-        $user->address_city = $request->input('address_city');
-        $user->address_state = $request->input('address_state');
-        $user->address_zip = $request->input('address_zip');
-        $user->administrator_ind = $request->input('administrator_ind');
-        $user->mi_member_date = $request->input('mi_member_date');
+        $event->name = $request->input('name');
+        $event->event_date = $request->input('event_date');
+        $event->description = $request->input('description');
 
-        $user->save();
+        $event->save();
 
-        return redirect()->route('users.index')->with('status', 'User updated!');
+        return redirect()->route('events.index')->with('status', 'Event updated!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Event $event)
     {
         //
     }
