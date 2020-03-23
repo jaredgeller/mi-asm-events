@@ -42,7 +42,7 @@ class DatabaseSeeder extends Seeder
         $event_user_id = DB::table('event_user')->insertGetId([
             'event_id' => $event_id,
             'user_id' => $user_id,
-            'registration_date ' => Carbon::create('2020', '3', '10'),
+            'registration_date' => Carbon::create('2020', '3', '10'),
         ]);
         DB::table('event_user_abstract')->insert([
             'event_user_id' => $event_user_id,

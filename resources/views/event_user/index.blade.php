@@ -34,7 +34,7 @@
                                         </th>
                                         <th>{{ $registration->id }}</th>
                                         <td>{{ $registration->user->fullName() }}</td>
-                                        <td>{{ $event->event_date }}</td>
+                                        <td>{{ $registration->registration_date }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
