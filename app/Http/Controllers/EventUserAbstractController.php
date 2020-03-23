@@ -61,9 +61,10 @@ class EventUserAbstractController extends Controller
      */
     public function edit(Event $event, EventUser $eventUser, EventUserAbstract $eventUserAbstract)
     {
-        return view('event_user.edit', [
+        return view('event_user_abstract.edit', [
             'event' => $event,
             'eventUser' => $eventUser,
+            'eventUserAbstract' => $eventUserAbstract,
         ]);
     }
 
