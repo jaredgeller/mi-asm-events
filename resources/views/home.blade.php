@@ -43,7 +43,7 @@
                                     <td>
                                         @foreach (Auth::user()->abstracts($event->id) as $abstract)
                                             <a href="{{ route('abstractView', [$abstract->event_user_id, $abstract->id]) }}">Abstract {{ $abstract->id }}</a>
-                                            {{ !$loop->last ? '<br>' : '' }}
+                                            {!! !$loop->last ? '<br>' : '' !!}
                                         @endforeach
                                     </td>
                                 </tr>
