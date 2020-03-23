@@ -11,4 +11,9 @@ class Event extends Model
         'event_date',
         'description',
     ];
+
+    public function registrations()
+    {
+        return $this->hasMany('App\EventUser');
+    }
 }

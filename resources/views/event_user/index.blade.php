@@ -5,7 +5,9 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Event Index</div>
+                    <div class="card-header">
+                        {{ $event->name }} - Event Registration Index
+                    </div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -22,20 +24,17 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Description</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($events as $event)
+                                @foreach ($event->registrations() as $registration)
                                     <tr>
                                         <th scope="row">
-                                            <a href="{{ route('events.edit', $event->id) }}">Edit</a>
-                                            <a href="{{ route('events.event_user.index', $event->id) }}">Registrations</a>
+                                            <a href="{{ route('event_user.edit', $event->id, $registration->id) }}">Edit</a>
                                         </th>
-                                        <th>{{ $event->id }}</th>
-                                        <td>{{ $event->name }}</td>
+                                        <th>{{ $registration->id }}</th>
+                                        <td>{{ $registration->user->fullName() }}</td>
                                         <td>{{ $event->event_date }}</td>
-                                        <td>{{ $event->description }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>
