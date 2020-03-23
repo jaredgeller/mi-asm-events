@@ -44,7 +44,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <a href="#" class="btn btn-primary">Create Event</a>
+                                <a href="{{ route('events.create') }}" class="btn btn-primary">Create Event</a>
                             </div>
                         </div>
                     </div>

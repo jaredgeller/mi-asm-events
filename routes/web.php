@@ -22,6 +22,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/events/{event}/register', 'HomeController@registerGet')->name('registerGet');
+Route::get('/registration/{event_user}/abstract', 'HomeController@abstractGet')->name('abstractGet');
+Route::get('/registration/{event_user}/abstract/{abstract}', 'HomeController@abstractView')->name('abstractView');
+Route::post('/registration/{event_user}/abstract', 'HomeController@abstractPost')->name('abstractPost');
+Route::get('/membership', 'HomeController@membershipGet')->name('membershipGet');
 
 Route::resource('users', 'UserController');
 Route::resource('events', 'EventController');

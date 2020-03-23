@@ -47,7 +47,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function fullName() {
+    public function fullName(): string
+    {
         return $this->first_name . ' ' . $this->last_name;
+    }
+
+    public function eventUser(int $event_id)
+    {
+        return EventUser::where('event_id', $event_id)->where('user_id', $this->id)->first();
+    }
+
+    public function isRegisteredForEvent(int $event_id): bool
+    {
+        return $this->eventUser($event_id) !== null;
+    }
+
+    public function abstracts(int $event_id)
+    {
+        return EventUserAbstract::where('event_user_id', $this->eventUser($event_id)->id)->get();
     }
 }
