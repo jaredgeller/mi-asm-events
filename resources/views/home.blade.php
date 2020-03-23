@@ -41,7 +41,7 @@
                                     <td>{{ $event->event_date }}</td>
                                     <td>{{ $event->description }}</td>
                                     <td>
-                                        @foreach (Auth::user()->abstracts() as $abstract)
+                                        @foreach (Auth::user()->abstracts($event->id) as $abstract)
                                             <a href="{{ route('abstractView', $abstract->id) }}">Abstract {{ $abstract->id }}</a>
                                         @endforeach
                                     </td>
