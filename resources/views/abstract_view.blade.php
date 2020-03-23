@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ $eventUserAbstract->eventUser()->event->name }} - {{ $eventUserAbstract->eventUser()->user->fullName() }} - View Abstract</div>
+                    <div class="card-header">{{ $eventUserAbstract->eventUser->event->name }} - {{ $eventUserAbstract->eventUser->user->fullName() }} - View Abstract</div>
 
                     <div class="card-body">
                         @if (session('status'))
