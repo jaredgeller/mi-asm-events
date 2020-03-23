@@ -28,6 +28,6 @@ class EventUserAbstract extends Model
 
     public function eventUser()
     {
-        return $this->belongsTo('App\EventUser');
+        return $this->belongsTo('App\EventUser', 'event_user_id');
     }
 }
