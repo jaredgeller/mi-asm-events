@@ -55,24 +55,33 @@ class EventUserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
+     * @param  \App\Event $event
      * @param  \App\EventUser  $eventUser
      * @return \Illuminate\Http\Response
      */
-    public function edit(EventUser $eventUser)
+    public function edit(Event $event, EventUser $eventUser)
     {
-        //
+        return view('event_user.edit', [
+            'event' => $event,
+            'eventUser' => $eventUser,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Event $event
      * @param  \App\EventUser  $eventUser
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, EventUser $eventUser)
+    public function update(Request $request, Event $event, EventUser $eventUser)
     {
-        //
+        $eventUser->registration_date = $request->input('registration_date');
+
+        $event->save();
+
+        return redirect()->route('events.event_user.index')->with('status', 'Registration updated!');
     }
 
     /**
