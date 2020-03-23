@@ -30,7 +30,7 @@
                                 @foreach ($event->registrations() as $registration)
                                     <tr>
                                         <th scope="row">
-                                            <a href="{{ route('events.event_user.edit', $event->id, $registration->id) }}">Edit</a>
+                                            <a href="{{ route('events.event_user.edit', [$event->id, $registration->id]) }}">Edit</a>
                                         </th>
                                         <th>{{ $registration->id }}</th>
                                         <td>{{ $registration->user->fullName() }}</td>
