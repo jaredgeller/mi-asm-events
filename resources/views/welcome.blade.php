@@ -88,6 +88,12 @@
                     <p>An event management system for the Michigan branch of the American Society for Microbiology (MI-ASM)</p>
                     <p>Find all information about MI-ASM events right here, including the annual MI-ASM meeting</p>
                 </div>
+
+                <div class="links">
+                    @foreach ($events as $event)
+                        {{ $event->name }} - {{ $event->event_date }}
+                    @endforeach
+                </div>
             </div>
         </div>
     </body>
