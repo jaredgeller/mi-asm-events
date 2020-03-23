@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        {{ $event->name }} - Event Registration Index {{$event->id}} {{ $event->registrations()->first()->id }}
+                        {{ $event->name }} - Event Registration Index
                     </div>
 
                     <div class="card-body">
