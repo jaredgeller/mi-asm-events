@@ -31,7 +31,7 @@
                                 <tr>
                                     <th scope="row">
                                         @if (Auth::user()->isRegisteredForEvent($event->id))
-                                            <a href="{{ route('abstractGet', Auth::user()->eventUser()->id) }}">Submit Abstract</a>
+                                            <a href="{{ route('abstractGet', Auth::user()->eventUser($event->id)->id) }}">Submit Abstract</a>
                                         @else
                                             <a href="{{ route('registerGet', $event->id) }}">Register</a>
                                         @endif
