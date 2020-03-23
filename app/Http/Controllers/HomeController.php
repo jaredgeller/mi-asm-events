@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\EventUser;
 use App\EventUserAbstract;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
