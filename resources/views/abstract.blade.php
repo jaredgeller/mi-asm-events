@@ -43,7 +43,7 @@
                                 <div class="col-md-6">
                                     <select id="delivery_preference" class="form-control" name="delivery_preference">
                                         @foreach (\App\EventUserAbstract::DELIVERY_PREFERENCES as $k => $v)
-                                            <option value="0" {{ \App\EventUserAbstract::DELIVERY_PREFERENCE_EITHER == $k ? "selected" : "" }}>{{ $v }}</option>
+                                            <option value="{{ $k }}" {{ \App\EventUserAbstract::DELIVERY_PREFERENCE_EITHER == $k ? "selected" : "" }}>{{ $v }}</option>
                                         @endforeach
                                     </select>
                                 </div>

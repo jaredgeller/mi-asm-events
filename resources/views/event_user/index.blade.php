@@ -39,6 +39,7 @@
                                         <td>
                                             @foreach ($eventUser->eventUserAbstracts() as $eventUserAbstract)
                                                 <a href="{{ route('events.event_user.event_user_abstract.edit', [$event->id, $eventUser->id, $eventUserAbstract->id]) }}">Abstract {{ $eventUserAbstract->id }}</a>
+                                                {{ !$loop->last ? '<br>' : '' }}
                                             @endforeach
                                         </td>
                                     </tr>
