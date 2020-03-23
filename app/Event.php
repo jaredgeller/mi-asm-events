@@ -14,6 +14,6 @@ class Event extends Model
 
     public function registrations()
     {
-        return $this->hasMany('App\EventUser');
+        return $this->hasMany('App\EventUser')->get();
     }
 }
