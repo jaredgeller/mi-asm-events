@@ -101,8 +101,6 @@ class HomeController extends Controller
     }
 
     /**
-     * Create registration
-     *
      * @return \Illuminate\Http\Response
      */
     public function membershipGet()
@@ -113,5 +111,37 @@ class HomeController extends Controller
         $user->save();
 
         return redirect()->route('home')->with('status', 'Membership request submitted!');
+    }
+
+    /**
+     * @return \Illuminate\Http\Response
+     */
+    public function profileGet()
+    {
+        return view('profile', [
+            'user' => Auth::user(),
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function profilePut(Request $request)
+    {
+        $user = Auth::user();
+        $user->first_name = $request->input('first_name');
+        $user->last_name = $request->input('last_name');
+        $user->address_street_1 = $request->input('address_street_1');
+        $user->address_street_2 = $request->input('address_street_2');
+        $user->address_city = $request->input('address_city');
+        $user->address_state = $request->input('address_state');
+        $user->address_zip = $request->input('address_zip');
+
+        $user->save();
+
+        return redirect()->route('home')->with('status', 'Profile updated!');
     }
 }

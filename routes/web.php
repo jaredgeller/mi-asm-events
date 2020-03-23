@@ -27,6 +27,8 @@ Route::get('/registration/{event_user}/abstract', 'HomeController@abstractGet')-
 Route::get('/registration/{event_user}/abstract/{event_user_abstract}', 'HomeController@abstractView')->name('abstractView');
 Route::post('/registration/{event_user}/abstract', 'HomeController@abstractPost')->name('abstractPost');
 Route::get('/membership', 'HomeController@membershipGet')->name('membershipGet');
+Route::get('/profile', 'HomeController@profileGet')->name('profileGet');
+Route::put('/profile', 'HomeController@profilePut')->name('profilePut');
 
 Route::resource('users', 'UserController');
 Route::resource('events', 'EventController');
