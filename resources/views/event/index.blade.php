@@ -42,8 +42,8 @@
                             </table>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                        <div class="form-group row">
+                            <div class="col-md-12">
                                 <a href="#" class="btn btn-primary">Create Event</a>
                             </div>
                         </div>
