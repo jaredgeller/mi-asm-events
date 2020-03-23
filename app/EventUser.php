@@ -24,6 +24,6 @@ class EventUser extends Model
 
     public function eventUserAbstracts()
     {
-        return $this->hasMany('App\EventUserAbstract', 'event_user_id');
+        return $this->hasMany('App\EventUserAbstract', 'event_user_id')->get();
     }
 }
