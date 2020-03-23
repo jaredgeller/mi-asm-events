@@ -88,12 +88,14 @@ class HomeController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param  \App\EventUser $eventUser
      * @param  \App\EventUserAbstract $eventUserAbstract
      * @return \Illuminate\Http\Response
      */
-    public function abstractView(EventUserAbstract $eventUserAbstract)
+    public function abstractView(EventUser $eventUser, EventUserAbstract $eventUserAbstract)
     {
         return view('abstract_view', [
+            'eventUser' => $eventUser,
             'eventUserAbstract' => $eventUserAbstract,
         ]);
     }
