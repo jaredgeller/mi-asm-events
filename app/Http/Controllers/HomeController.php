@@ -44,7 +44,7 @@ class HomeController extends Controller
         $eventUser = new EventUser();
         $eventUser->event_id = $event->id;
         $eventUser->user_id = Auth::user()->id;
-        $eventUser->registration_date = Carbon::create();
+        $eventUser->registration_date = Carbon::today();
         $eventUser->save();
 
         return redirect()->route('home')->with('status', 'Event registration submitted!');
@@ -77,7 +77,7 @@ class HomeController extends Controller
         $eventUserAbstract->title = $request->input('title');
         $eventUserAbstract->authors = $request->input('authors');
         $eventUserAbstract->body = $request->input('body');
-        $eventUserAbstract->submission_date = Carbon::create();
+        $eventUserAbstract->submission_date = Carbon::today();
         $eventUserAbstract->delivery_preference = $request->input('delivery_preference');
 
         $eventUserAbstract->save();
@@ -107,7 +107,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
 
-        $user->mi_member_date = Carbon::create();
+        $user->mi_member_date = Carbon::today();
         $user->save();
 
         return redirect()->route('home')->with('status', 'Membership request submitted!');
