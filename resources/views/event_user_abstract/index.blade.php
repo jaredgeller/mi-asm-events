@@ -24,23 +24,17 @@
                                         <th scope="col">Id</th>
                                         <th scope="col">Name</th>
                                         <th scope="col">Date</th>
-                                        <th scope="col">Abstracts</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @foreach ($event->eventUsers() as $eventUser)
+                                @foreach ($event->registrations() as $registration)
                                     <tr>
                                         <th scope="row">
-                                            <a href="{{ route('events.event_user.edit', [$event->id, $eventUser->id]) }}">Edit</a>
+                                            <a href="{{ route('events.event_user.edit', [$event->id, $registration->id]) }}">Edit</a>
                                         </th>
-                                        <th>{{ $eventUser->id }}</th>
-                                        <td>{{ $eventUser->user->fullName() }}</td>
-                                        <td>{{ $eventUser->registration_date }}</td>
-                                        <td>
-                                            @foreach ($eventUser->abstracts() as $abstract)
-                                                <a href="{{ route('events.event_user.abstract.edit', [$event->id, $eventUser->id, $abstract->id]) }}">Abstract {{ $abstract->id }}</a>
-                                            @endforeach
-                                        </td>
+                                        <th>{{ $registration->id }}</th>
+                                        <td>{{ $registration->user->fullName() }}</td>
+                                        <td>{{ $registration->registration_date }}</td>
                                     </tr>
                                 @endforeach
                                 </tbody>

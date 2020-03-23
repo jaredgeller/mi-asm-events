@@ -24,3 +24,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('users', 'UserController');
 Route::resource('events', 'EventController');
 Route::resource('events.event_user', 'EventUserController');
+Route::resource('events.event_user.abstract', 'EventUserAbstractController');

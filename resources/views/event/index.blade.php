@@ -29,7 +29,7 @@
                                 @foreach ($events as $event)
                                     <tr>
                                         <th scope="row">
-                                            <a href="{{ route('events.edit', $event->id) }}">Edit</a>
+                                            <a href="{{ route('events.edit', $event->id) }}">Edit</a><br>
                                             <a href="{{ route('events.event_user.index', $event->id) }}">Registrations</a>
                                         </th>
                                         <th>{{ $event->id }}</th>

@@ -12,7 +12,7 @@ class Event extends Model
         'description',
     ];
 
-    public function registrations()
+    public function eventUsers()
     {
         return $this->hasMany('App\EventUser')->get();
     }

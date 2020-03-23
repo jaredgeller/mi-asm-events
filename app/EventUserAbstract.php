@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventUserAbstract extends Model
 {
+    protected $table = 'event_user_abstract';
+
     protected $fillable = [
         'title',
         'authors',
@@ -23,4 +25,9 @@ class EventUserAbstract extends Model
         self::DELIVERY_PREFERENCE_ORAL => 'Oral',
         self::DELIVERY_PREFERENCE_EITHER => 'Either',
     ];
+
+    public function eventUser()
+    {
+        return $this->belongsTo('App\EventUser');
+    }
 }
