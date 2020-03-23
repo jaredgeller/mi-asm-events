@@ -81,7 +81,7 @@ class EventUserController extends Controller
 
         $event->save();
 
-        return redirect()->route('events.event_user.index')->with('status', 'Registration updated!');
+        return redirect()->route('events.event_user.index', [$event->id, $eventUser->id])->with('status', 'Registration updated!');
     }
 
     /**
