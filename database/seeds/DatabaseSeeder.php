@@ -1,5 +1,6 @@
 <?php
 
+use App\EventUserAbstract;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
