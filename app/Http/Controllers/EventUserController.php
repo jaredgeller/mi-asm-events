@@ -79,7 +79,7 @@ class EventUserController extends Controller
     {
         $eventUser->registration_date = $request->input('registration_date');
 
-        $event->save();
+        $eventUser->save();
 
         return redirect()->route('events.event_user.index', [$event->id, $eventUser->id])->with('status', 'Registration updated!');
     }
