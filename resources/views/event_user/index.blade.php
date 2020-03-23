@@ -37,8 +37,8 @@
                                         <td>{{ $eventUser->user->fullName() }}</td>
                                         <td>{{ $eventUser->registration_date }}</td>
                                         <td>
-                                            @foreach ($eventUser->abstracts() as $abstract)
-                                                <a href="{{ route('events.event_user.abstract.edit', [$event->id, $eventUser->id, $abstract->id]) }}">Abstract {{ $abstract->id }}</a>
+                                            @foreach ($eventUser->eventUserAbstracts() as $eventUserAbstract)
+                                                <a href="{{ route('events.event_user.event_user_abstract.edit', [$event->id, $eventUser->id, $eventUserAbstract->id]) }}">Abstract {{ $eventUserAbstract->id }}</a>
                                             @endforeach
                                         </td>
                                     </tr>

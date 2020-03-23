@@ -14,35 +14,35 @@
                             </div>
                         @endif
 
-                        <form method="POST" action="{{ route('events.event_user.abstract.update', [$event->id, $eventUser->id, $abstract->id]) }}">
+                        <form method="POST" action="{{ route('events.event_user.event_user_abstract.update', [$event->id, $eventUser->id, $eventUserAbstract->id]) }}">
                             @method('PUT')
                             @csrf
 
                             <div class="form-group row">
                                 <label for="title" class="col-md-4 col-form-label text-md-right">Abstract Title</label>
                                 <div class="col-md-6">
-                                    <input id="title" type="text" class="form-control" name="title" value="{{ $abstract->title }}">
+                                    <input id="title" type="text" class="form-control" name="title" value="{{ $eventUserAbstract->title }}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="authors" class="col-md-4 col-form-label text-md-right">Abstract Authors</label>
                                 <div class="col-md-6">
-                                    <input id="authors" type="text" class="form-control" name="authors" value="{{ $abstract->authors }}">
+                                    <input id="authors" type="text" class="form-control" name="authors" value="{{ $eventUserAbstract->authors }}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="body" class="col-md-4 col-form-label text-md-right">Abstract Body</label>
                                 <div class="col-md-6">
-                                    <input id="body" type="text" class="form-control" name="body" value="{{ $abstract->body }}">
+                                    <input id="body" type="text" class="form-control" name="body" value="{{ $eventUserAbstract->body }}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="submission_date" class="col-md-4 col-form-label text-md-right">Abstract Submission Date</label>
                                 <div class="col-md-6">
-                                    <input id="submission_date" type="text" class="form-control" name="submission_date" value="{{ $abstract->submission_date }}">
+                                    <input id="submission_date" type="text" class="form-control" name="submission_date" value="{{ $eventUserAbstract->submission_date }}">
                                 </div>
                             </div>
 
@@ -51,7 +51,7 @@
                                 <div class="col-md-6">
                                     <select id="delivery_preference" class="form-control" name="delivery_preference">
                                         @foreach (\App\EventUserAbstract::DELIVERY_PREFERENCES as $k => $v)
-                                            <option value="0" {{ $abstract->delivery_preference == $k ? "selected" : "" }}>{{ $v }}</option>
+                                            <option value="0" {{ $eventUserAbstract->delivery_preference == $k ? "selected" : "" }}>{{ $v }}</option>
                                         @endforeach
                                     </select>
                                 </div>

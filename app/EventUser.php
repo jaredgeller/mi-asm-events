@@ -22,7 +22,7 @@ class EventUser extends Model
         return $this->belongsTo('App\Event');
     }
 
-    public function abstracts()
+    public function eventUserAbstracts()
     {
         return $this->hasMany('App\EventUserAbstract')->get();
     }
