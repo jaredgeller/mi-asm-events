@@ -77,7 +77,7 @@ class EventUserAbstractController extends Controller
      * @param  \App\EventUserAbstract  $eventUserAbstract
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event, Event $eventUser, EventUserAbstract $eventUserAbstract)
+    public function update(Request $request, Event $event, EventUser $eventUser, EventUserAbstract $eventUserAbstract)
     {
         $eventUserAbstract->title = $request->input('title');
         $eventUserAbstract->authors = $request->input('authors');
