@@ -74,7 +74,7 @@ class HomeController extends Controller
     {
         $request->validate([
             'title' => 'required|max:100',
-            'authors' => 'requrired|max:200',
+            'authors' => 'required|max:200',
             'body' => 'required|max:3000',
             'delivery_preference' => 'between:0,2',
         ]);
