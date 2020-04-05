@@ -77,9 +77,13 @@ class EventUserController extends Controller
      */
     public function update(Request $request, Event $event, EventUser $eventUser)
     {
-        $request->validate([
-            'registration_date' => 'required|date_format:YY-MM-DD',
-        ]);
+        $toValidate = [
+            'registration_date' => 'required|date_format:Y-m-d',
+        ];
+        $messages = [
+            'registration_date.date_format' => 'The :attribute does not match the format yyyy-mm-dd',
+        ];
+        $request->validate($toValidate, $messages);
 
         $eventUser->registration_date = $request->input('registration_date');
 
