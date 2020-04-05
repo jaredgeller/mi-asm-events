@@ -72,6 +72,13 @@ class HomeController extends Controller
      */
     public function abstractPost(Request $request, EventUser $eventUser)
     {
+        $request->validate([
+            'title' => 'required|max:100',
+            'authors' => 'requrired|max:200',
+            'body' => 'required|max:3000',
+            'delivery_preference' => 'between:0,2',
+        ]);
+
         $eventUserAbstract = new EventUserAbstract();
         $eventUserAbstract->event_user_id = $eventUser->id;
         $eventUserAbstract->title = $request->input('title');
