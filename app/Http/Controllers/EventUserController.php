@@ -77,6 +77,10 @@ class EventUserController extends Controller
      */
     public function update(Request $request, Event $event, EventUser $eventUser)
     {
+        $request->validate([
+            'registration_date' => 'required|date_format:YY-MM-DD',
+        ]);
+
         $eventUser->registration_date = $request->input('registration_date');
 
         $eventUser->save();

@@ -14,6 +14,16 @@
                             </div>
                         @endif
 
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form method="POST" action="{{ route('events.event_user.update', [$event->id, $eventUser->id]) }}">
                             @method('PUT')
                             @csrf
@@ -21,7 +31,7 @@
                             <div class="form-group row">
                                 <label for="registration_date" class="col-md-4 col-form-label text-md-right">Registration Date</label>
                                 <div class="col-md-6">
-                                    <input id="registration_date" type="text" class="form-control" name="registration_date" value="{{ $eventUser->registration_date }}">
+                                    <input id="registration_date" type="text" class="form-control @error('registration_date') is-invalid @enderror" name="registration_date" value="{{ $eventUser->registration_date }}">
                                 </div>
                             </div>
 
