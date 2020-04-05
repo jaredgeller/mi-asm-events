@@ -47,6 +47,16 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        $rules = [
+            'name' => 'required|max:50',
+            'event_date' => 'required|date_format:Y-m-d',
+            'description' => 'required|max:2000',
+        ];
+        $messages = [
+            'event_date.date_format' => 'The :attribute does not match the format yyyy-mm-dd',
+        ];
+        $request->validate($rules, $messages);
+
         $event = new Event();
 
         $event->name = $request->input('name');
