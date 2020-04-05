@@ -138,6 +138,16 @@ class HomeController extends Controller
      */
     public function profilePut(Request $request)
     {
+        $request->validate([
+           'first_name' => 'required|max:50',
+           'last_name' => 'required|max:50',
+           'address_street_1' => 'max:200',
+           'address_street_2' => 'max:200',
+           'address_city' => 'max:200',
+           'address_state' => 'max:20',
+           'address_zip' => 'max:10',
+        ]);
+
         $user = Auth::user();
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
