@@ -79,6 +79,18 @@ class EventUserAbstractController extends Controller
      */
     public function update(Request $request, Event $event, EventUser $eventUser, EventUserAbstract $eventUserAbstract)
     {
+        $rules = [
+            'title' => 'required|max:100',
+            'authors' => 'required|max:200',
+            'body' => 'required|max:3000',
+            'submission_date' => 'required|date_format:Y-m-d',
+            'delivery_preference' => 'required',
+        ];
+        $messages = [
+            'submission_date.date_format' => 'The :attribute does not match the format yyyy-mm-dd',
+        ];
+        $request->validate($rules, $messages);
+
         $eventUserAbstract->title = $request->input('title');
         $eventUserAbstract->authors = $request->input('authors');
         $eventUserAbstract->body = $request->input('body');

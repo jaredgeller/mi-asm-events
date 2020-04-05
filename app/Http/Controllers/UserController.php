@@ -83,6 +83,21 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $rules = [
+            'first_name' => 'required|max:50',
+            'last_name' => 'required|max:50',
+            'address_street_1' => 'max:200',
+            'address_street_2' => 'max:200',
+            'address_city' => 'max:200',
+            'address_state' => 'max:20',
+            'address_zip' => 'max:10',
+            'mi_member_date' => 'date_format:Y-m-d',
+        ];
+        $messages = [
+            'mi_member_date.date_format' => 'The :attribute does not match the format yyyy-mm-dd',
+        ];
+        $request->validate($rules, $messages);
+
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
         $user->email = $request->input('email');

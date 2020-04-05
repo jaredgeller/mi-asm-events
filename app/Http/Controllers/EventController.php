@@ -91,6 +91,16 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
+        $rules = [
+            'name' => 'required|max:50',
+            'event_date' => 'required|date_format:Y-m-d',
+            'description' => 'required|max:2000',
+        ];
+        $messages = [
+            'event_date.date_format' => 'The :attribute does not match the format yyyy-mm-dd',
+        ];
+        $request->validate($rules, $messages);
+
         $event->name = $request->input('name');
         $event->event_date = $request->input('event_date');
         $event->description = $request->input('description');
