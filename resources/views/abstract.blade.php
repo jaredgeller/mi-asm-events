@@ -41,7 +41,7 @@
                             <div class="form-group row">
                                 <label for="delivery_preference" class="col-md-4 col-form-label text-md-right">Abstract Delivery Preference</label>
                                 <div class="col-md-6">
-                                    <select id="delivery_preference" class="form-control" name="delivery_preference">
+                                    <select id="delivery_preference" class="form-control @error('delivery_preference') is-invalid @enderror" name="delivery_preference">
                                         <option value="-1">Select One</option>
                                         @foreach (\App\EventUserAbstract::DELIVERY_PREFERENCES as $k => $v)
                                             <option value="{{ $k }}" {{ old('delivery_preference') == $k ? "selected" : "" }}>{{ $v }}</option>
