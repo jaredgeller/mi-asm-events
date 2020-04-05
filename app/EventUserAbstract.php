@@ -16,9 +16,9 @@ class EventUserAbstract extends Model
         'delivery_preference',
     ];
 
-    public const DELIVERY_PREFERENCE_POSTER = 0;
-    public const DELIVERY_PREFERENCE_ORAL = 1;
-    public const DELIVERY_PREFERENCE_EITHER = 2;
+    public const DELIVERY_PREFERENCE_POSTER = 1;
+    public const DELIVERY_PREFERENCE_ORAL = 2;
+    public const DELIVERY_PREFERENCE_EITHER = 3;
 
     public const DELIVERY_PREFERENCES = [
         self::DELIVERY_PREFERENCE_POSTER => 'Poster',

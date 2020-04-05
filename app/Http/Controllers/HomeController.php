@@ -76,7 +76,7 @@ class HomeController extends Controller
             'title' => 'required|max:100',
             'authors' => 'required|max:200',
             'body' => 'required|max:3000',
-            'delivery_preference' => 'between:0,2',
+            'delivery_preference' => 'required',
         ]);
 
         $eventUserAbstract = new EventUserAbstract();
