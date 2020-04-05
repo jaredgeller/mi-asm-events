@@ -68,6 +68,6 @@ class User extends Authenticatable
             return EventUserAbstract::where('event_user_id', $this->eventUser($event_id)->id)->get();
         }
 
-        return null;
+        return collect();
     }
 }
