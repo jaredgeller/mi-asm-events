@@ -64,6 +64,10 @@ class User extends Authenticatable
 
     public function abstracts(int $event_id)
     {
-        return EventUserAbstract::where('event_user_id', $this->eventUser($event_id)->id)->get();
+        if ($this->eventUser($event_id)) {
+            return EventUserAbstract::where('event_user_id', $this->eventUser($event_id)->id)->get();
+        }
+
+        return null;
     }
 }
