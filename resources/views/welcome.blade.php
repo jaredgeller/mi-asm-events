@@ -91,7 +91,7 @@
 
                 <div class="links">
                     @foreach ($events as $event)
-                        {{ $event->name }} - {{ $event->event_date }}
+                        <p>{{ $event->name }} - {{ $event->event_date }}</p>
                     @endforeach
                 </div>
             </div>
